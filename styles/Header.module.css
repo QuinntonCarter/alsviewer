@@ -1,0 +1,22 @@
+/* Main Font */
+@font-face {
+    font-family: 'Apex Main';
+    src: url('../fonts/Apex_Regular.otf')
+}
+
+/* Sub font */
+@font-face {
+    font-family: 'Apex Sub';
+    src: url('../fonts/apex-mk2.regular.otf')
+}
+
+h1.title {
+    font-family: Apex Sub;
+    color: #AF3E45;
+    text-align: center;
+}
+
+h1.title > span {
+    font-family: Apex Main;
+    font-size: 12vh;
+}

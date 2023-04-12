@@ -1,0 +1,202 @@
+/* Sub font */
+/* *** add breakpoints * character selects and margins around grids ***/
+/* may need to migrate to Regular react */
+
+/* *** figure out solution for FOUT *** */
+@font-face {
+  font-family: "Apex Sub";
+  src: url("../fonts/apex-mk2.regular.otf");
+}
+
+/* input styles */
+.inputStyles {
+  height: 13vh;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputStyles > Button {
+  font-family: Apex Sub;
+}
+
+/* immediate player data */
+.totalKills {
+  font-family: Apex Sub;
+}
+
+/* Main container */
+.mainContainer {
+  background: linear-gradient(217deg, gold, orange, red);
+  overflow: hidden;
+  /* position: relative; */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359.99deg);
+  }
+}
+
+/* Name above selectable characters */
+.hoveredName {
+  z-index: 4;
+  background-color: rgba(238, 238, 238, 0.315);
+  border-bottom: solid 1.7vh rgba(243, 243, 243, 0.384);
+  width: 49.63vw;
+  height: 12vh;
+  /* position: relative; */
+  transform: skewX(-28deg);
+  transform-origin: bottom left;
+
+  /* testing */
+  /* background-color: rgba(235, 23, 23, 0.486);
+    border-bottom: solid 1.7vh rgba(173, 42, 42, 0.849); */
+}
+
+.hoveredNameDisplay {
+  color: rgba(97, 97, 97, 0.781);
+  /* position: absolute; */
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  z-index: 4;
+  text-align: center;
+  letter-spacing: 0.15vw;
+  font-size: 10vh;
+  font-family: Apex Sub;
+  font-weight: bold;
+  height: 5vh;
+  /* position: relative; */
+  /* top: 0 */
+}
+
+/* hovered + selected character display */
+.characterDisplay {
+  /* uncommenta after background added */
+  /* color: white; */
+  font-family: Apex Sub;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4.2px);
+  background-color: rgba(255, 255, 255, 0.308);
+  -webkit-backdrop-filter: blur(4.2px);
+  background-position-x: 55vw;
+  background-position-y: -2vh;
+  font-size: 3vh;
+  height: 13vh;
+  width: 100%;
+  margin-top: 2vh;
+  border-top: solid 2.2vh rgba(59, 59, 59, 0.671);
+  bottom: 0;
+}
+
+.characterDisplay > p {
+  border: 5px orange solid;
+  height: 13vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.characterDisplay > p > span {
+  font-size: 1.7vh;
+  /* position: absolute; */
+}
+
+.characterDisplayImage {
+  height: 96vh;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* selectable grid */
+.characterContainer {
+  /* position: relative; */
+  display: flex;
+  margin-top: 7vh;
+}
+
+/* for each character in selectable grid */
+@keyframes hoverpulse {
+  50% {
+    border: solid 2.7px orange;
+  }
+  80% {
+    border: solid 2.7px rgb(199, 199, 199);
+  }
+}
+
+.selected {
+  transform: skewX(-18deg);
+  border: solid orange;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.selected:hover {
+  animation: hoverpulse 1.1s infinite;
+}
+
+.selected > p {
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.selectable {
+  transform: skewX(-18deg);
+  border: solid gray;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.selectable p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.selectable:hover {
+  animation: hoverpulse 1.1s infinite;
+}
+
+.selectableName {
+  transform: skewX(18deg);
+  font-family: Apex Sub;
+}
+
+.notSelectable {
+  transform: skewX(-18deg);
+  border: solid gray;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.notSelectable p {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
+  width: 100%;
+}
