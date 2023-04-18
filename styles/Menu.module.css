@@ -23,12 +23,16 @@
 /* immediate player data */
 .totalKills {
   font-family: Apex Sub;
+  width: 100%;
+  /*  added flex around total kills and selected cahracter card */
+  justify-content: center;
+  align-content: center;
 }
 
 /* Main container */
 .mainContainer {
   background: linear-gradient(217deg, gold, orange, red);
-  overflow: hidden;
+  /* overflow: visible; */
   /* position: relative; */
 }
 
@@ -42,13 +46,21 @@
 }
 
 /* Name above selectable characters */
+.characterNameContainer {
+  position: relative;
+  justify-content: center;
+}
+
 .hoveredName {
-  z-index: 4;
+  /* ** */
+  /* z-index: 4; */
+  /* ** */
+
   background-color: rgba(238, 238, 238, 0.315);
   border-bottom: solid 1.7vh rgba(243, 243, 243, 0.384);
   width: 49.63vw;
   height: 12vh;
-  /* position: relative; */
+  position: absolute;
   transform: skewX(-28deg);
   transform-origin: bottom left;
 
@@ -59,7 +71,7 @@
 
 .hoveredNameDisplay {
   color: rgba(97, 97, 97, 0.781);
-  /* position: absolute; */
+  margin-left: -7vw;
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -109,6 +121,7 @@
 
 .characterDisplay > p > span {
   font-size: 1.7vh;
+  /* ** */
   /* position: absolute; */
 }
 
@@ -152,8 +165,8 @@
 .selected > p {
   background-color: orange;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
   width: 100%;
 }
 
@@ -162,6 +175,7 @@
   border: solid gray;
   margin: auto;
   height: 100%;
+  /* ** */
   width: 100%;
 }
 
@@ -189,7 +203,9 @@
   border: solid gray;
   margin: auto;
   height: 100%;
+  /* ** */
   width: 100%;
+  overflow: hidden;
 }
 
 .notSelectable p {

@@ -23,7 +23,8 @@ const Layout = (props) => {
 
   const [loading, setLoading] = useState(false);
 
-  const searchUser = () => {
+  function searchUser(e) {
+    e.preventDefault();
     apexAPI({
       method: "GET",
       params: {
@@ -53,43 +54,41 @@ const Layout = (props) => {
         }
       })
       .catch((err) => showError(err.response.data.Error));
-  };
+  }
 
-  const showError = (err) => {
+  function showError(err) {
     setError(err);
-  };
+  }
 
   const parsedPlayerLegendData = Object.entries(playerLegendData).filter(
     (entry) => entry[1].data
   );
 
   return (
-    <>
-      <Flex flexDirection={"column"}>
-        <Header />
-        <Search
-          platform={platform}
-          setPlatform={setPlatform}
-          player={player}
-          error={error}
-          setPlayer={setPlayer}
-          searchUser={searchUser}
-          foundStats={foundStats}
-        />
-        <StatsViewer
-          player={player}
-          foundStats={foundStats}
-          selectedLegend={selectedLegend}
-          setSelectedLegend={setSelectedLegend}
-          hoveredLegend={hoveredLegend}
-          setHoveredLegend={setHoveredLegend}
-          recentlyUsedLegend={foundStats.recentlyUsedLegend}
-          parsedLegendData={parsedPlayerLegendData}
-          playerLegendData={playerLegendData}
-        />
-        {props.children}
-      </Flex>
-    </>
+    <Flex flexDirection={"column"}>
+      <Header />
+      <Search
+        platform={platform}
+        setPlatform={setPlatform}
+        player={player}
+        error={error}
+        setPlayer={setPlayer}
+        searchUser={searchUser}
+        foundStats={foundStats}
+      />
+      <StatsViewer
+        player={player}
+        foundStats={foundStats}
+        selectedLegend={selectedLegend}
+        setSelectedLegend={setSelectedLegend}
+        hoveredLegend={hoveredLegend}
+        setHoveredLegend={setHoveredLegend}
+        recentlyUsedLegend={foundStats.recentlyUsedLegend}
+        parsedLegendData={parsedPlayerLegendData}
+        playerLegendData={playerLegendData}
+      />
+      {props.children}
+    </Flex>
   );
 };
 

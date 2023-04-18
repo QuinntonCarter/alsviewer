@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Flex, Box, Text } from "@chakra-ui/react";
+import { Grid, Flex, Box, Text, GridItem } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 import Image from "next/image";
 
@@ -19,56 +19,91 @@ const StatsViewer = ({
   playerLegendData,
 }) => {
   const [killsAsLegend, setKillsAsLegend] = useState([]);
+  const selectingLegend = !selectedLegend && !hoveredLegend[0];
 
   // let viewableName = !hoveredLegend[0] ? selectedLegend[0] : hoveredLegend[0]
 
   return (
-    <Box
+    <Flex
       className={menuStyles.mainContainer}
       onClick={() => selectedLegend[1] && setSelectedLegend("")}
     >
       {foundStats.totalData && (
-        <>
-          <Box>
-            <Flex
-              zIndex={1}
-              flexDirection={"column"}
-              alignItems={"center"}
-              height={"auto"}
-              width={"100%"}
-            >
-              <p className={menuStyles.totalKills}>
-                {" "}
-                {`${player} Total Kills ${foundStats.totalData?.kills.value}`}{" "}
-              </p>
-              <Flex flexDirection={"row"}>
-                <Grid templateColumns={"repeat(2, 1fr)"}>
-                  <SelectedCharacter
-                    // position={'relative'}
-                    recentlyUsedLegend={recentlyUsedLegend}
-                    foundStats={foundStats}
-                    hoveredName={hoveredLegend[0]}
-                    hoveredData={hoveredLegend[1]}
-                    selectedLegend={selectedLegend}
-                    setKillsAsLegend={setKillsAsLegend}
-                  />
-                  <Characters
-                    position={"absolute"}
-                    legends={foundStats}
-                    // parsedLegendData={parsedLegendData}
-                    playerLegendData={playerLegendData}
-                    hoveredLegend={hoveredLegend}
-                    selectedLegend={selectedLegend}
-                    setHoveredLegend={setHoveredLegend}
-                    setSelectedLegend={setSelectedLegend}
-                  />
-                </Grid>
-                {/* display of hovered characters and selected */}
+        <GridItem>
+          {/* ** */}
+          {/* <Flex
+            zIndex={1}
+            flexDirection={"column"}
+            alignItems={"center"}
+            height={"auto"}
+            width={"100%"}
+          > */}
+          {/* <Text
+              fontSize="3xl"
+              className={menuStyles.totalKills}
+            >{`${player} Total Kills ${foundStats.totalData?.kills.value}`}</Text> */}
+          {/* <Flex flexDirection={"row"}> */}
+          {/* ** */}
+          <Grid templateColumns={"repeat(2, 1fr)"}>
+            <GridItem>
+              <Flex>
+                <Text
+                  fontSize="3xl"
+                  className={menuStyles.totalKills}
+                >{`${player} Total Kills ${foundStats.totalData?.kills.value}`}</Text>
+                <SelectedCharacter
+                  // position={'relative'}
+                  recentlyUsedLegend={recentlyUsedLegend}
+                  foundStats={foundStats}
+                  hoveredName={hoveredLegend[0]}
+                  hoveredData={hoveredLegend[1]}
+                  selectedLegend={selectedLegend}
+                  setKillsAsLegend={setKillsAsLegend}
+                />
               </Flex>
-            </Flex>
-          </Box>
-        </>
+            </GridItem>
+            <GridItem>
+              {/* {!selectedLegend[0] ? (
+                hoveredLegend[0] && ( */}
+              <Flex className={menuStyles.characterNameContainer}>
+                <Box
+                  className={menuStyles.hoveredName}
+                  border={selectingLegend && "transparent"}
+                  backgroundColor={selectingLegend && "transparent"}
+                />
+                <Text className={menuStyles.hoveredNameDisplay}>
+                  {selectedLegend[0] ? selectedLegend[0] : hoveredLegend[0]}
+                </Text>
+              </Flex>
+              {/* //   )
+              // ) : (
+              //   <Flex className={menuStyles.characterNameContainer}>
+              //     <Box className={menuStyles.hoveredName} />
+              //     <Text className={menuStyles.hoveredNameDisplay}>
+              //       {selectedLegend[0]}
+              //     </Text>
+              //   </Flex>
+              // )} */}
+              <Characters
+                position={"absolute"}
+                legends={foundStats}
+                // parsedLegendData={parsedLegendData}
+                playerLegendData={playerLegendData}
+                hoveredLegend={hoveredLegend}
+                selectedLegend={selectedLegend}
+                setHoveredLegend={setHoveredLegend}
+                setSelectedLegend={setSelectedLegend}
+              />
+            </GridItem>
+          </Grid>
+          {/* ** */}
+          {/* display of hovered characters and selected */}
+          {/* </Flex> */}
+          {/* </Flex> */}
+          {/* ** */}
+        </GridItem>
       )}
+      {/* selectedLegend Name lowest bar Display */}
       <Box
         display={!foundStats.totalData && "none"}
         position={"absolute"}
@@ -79,7 +114,7 @@ const StatsViewer = ({
         className={menuStyles.characterDisplay}
       >
         <Text fontSize={"2.7vh"}>
-          {selectedLegend[0] ? (
+          {/* {selectedLegend[0] ? (
             <Flex display={"flex"} flexDirection={"row"}>
               <Image
                 src={apexLogoWhite}
@@ -98,24 +133,30 @@ const StatsViewer = ({
                 </Text>
               </Flex>
             </Flex>
-          ) : (
-            <Flex display={"flex"} flexDirection={"row"}>
-              <Image
-                src={apexLogoWhite}
-                width={"50vw"}
-                height={"50vh"}
-                alt="Apex logo white"
-              />
-              <Text textAlign={"center"} fontSize={"1.9vh"}>
-                {player}
-                <br />
-                <Text fontSize={"2.2vh"}> Now Selecting </Text>
+          ) : ( */}
+          <Flex display={"flex"} flexDirection={"row"}>
+            <Image
+              src={apexLogoWhite}
+              width={"50vw"}
+              height={"50vh"}
+              alt="Apex logo white"
+            />
+            <Text textAlign={"center"} fontSize={"1.9vh"}>
+              {player}
+              <br />
+              <Text fontSize={"2.2vh"}>
+                {selectedLegend[0]
+                  ? selectedLegend[0]
+                  : hoveredLegend[0]
+                  ? hoveredLegend[0]
+                  : "Now Selecting"}
               </Text>
-            </Flex>
-          )}
+            </Text>
+          </Flex>
+          {/* )} */}
         </Text>
       </Box>
-    </Box>
+    </Flex>
   );
 };
 
