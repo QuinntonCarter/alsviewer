@@ -3,13 +3,12 @@ import menuStyles from "../styles/Menu.module.css";
 import { Text, Flex, SimpleGrid, Box } from "@chakra-ui/react";
 import ClickableCharacter from "./ClickableCharacter";
 
-const Characters = ({
+function Characters({
   playerLegendData,
   selectedLegend,
-  hoveredLegend,
   setHoveredLegend,
   setSelectedLegend,
-}) => {
+}) {
   // filters out "global" entry and returns player data to be viewed in selection chart
   const mappedCharacters = Object.entries(playerLegendData)
     .filter((entry) => entry[0] !== "Global")
@@ -73,6 +72,6 @@ const Characters = ({
       </SimpleGrid>
     </Flex>
   );
-};
+}
 
 export default Characters;

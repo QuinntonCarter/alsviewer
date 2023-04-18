@@ -2,7 +2,7 @@ import { Box, Image, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import menuStyles from "../styles/Menu.module.css";
 
-const ClickableCharacter = ({
+function ClickableCharacter({
   name,
   legend,
   data,
@@ -10,7 +10,7 @@ const ClickableCharacter = ({
   selectedLegend,
   setHoveredLegend,
   setSelectedLegend,
-}) => {
+}) {
   // set css styling based on data present; import from module.css
   const selectable = data
     ? selectedLegend[0] === name
@@ -39,7 +39,7 @@ const ClickableCharacter = ({
               alt={`${name} selectable icon in menu`}
               style={{ transform: "skewX(18deg)" }}
               // w={'6vw'}
-              h={"12vh"}
+              h={"85px"}
               // boxSize='90'
             />
           </Box>
@@ -62,7 +62,7 @@ const ClickableCharacter = ({
             alt={`${name} none selectable icon in menu`}
             style={{ filter: "grayscale(100%)", transform: "skewX(18deg)" }}
             // w={'6vw'}
-            h={"12vh"}
+            h={"85px"}
             // boxSize='90'
           />
           <Text>
@@ -75,6 +75,6 @@ const ClickableCharacter = ({
       )}
     </>
   );
-};
+}
 
 export default ClickableCharacter;

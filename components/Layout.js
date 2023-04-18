@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Box, Container, Flex } from "@chakra-ui/react";
 import axios from "axios";
 import Header from "./Header.js";
 import Search from "./Search.js";
@@ -10,7 +10,7 @@ const apexAPI = axios.create({
   baseURL: process.env.APEXAPIURL,
 });
 
-const Layout = (props) => {
+function Layout(props) {
   const [platform, setPlatform] = useState(false);
   const [player, setPlayer] = useState(null);
 
@@ -90,6 +90,6 @@ const Layout = (props) => {
       {props.children}
     </Flex>
   );
-};
+}
 
 export default Layout;

@@ -7,7 +7,7 @@ import apexLogoWhite from "../public/apex-logo-white.png";
 import Characters from "./Characters";
 import SelectedCharacter from "./SelectedCharacter";
 
-const StatsViewer = ({
+function StatsViewer({
   player,
   foundStats,
   selectedLegend,
@@ -17,7 +17,7 @@ const StatsViewer = ({
   recentlyUsedLegend,
   parsedLegendData,
   playerLegendData,
-}) => {
+}) {
   const [killsAsLegend, setKillsAsLegend] = useState([]);
   const selectingLegend = !selectedLegend && !hoveredLegend[0];
 
@@ -46,7 +46,7 @@ const StatsViewer = ({
           {/* ** */}
           <Grid templateColumns={"repeat(2, 1fr)"}>
             <GridItem>
-              <Flex>
+              <Flex flexDir={"column"} alignItems={"center"}>
                 <Text
                   fontSize="3xl"
                   className={menuStyles.totalKills}
@@ -158,6 +158,6 @@ const StatsViewer = ({
       </Box>
     </Flex>
   );
-};
+}
 
 export default StatsViewer;
