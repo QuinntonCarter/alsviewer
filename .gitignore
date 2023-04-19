@@ -19,6 +19,10 @@
 .DS_Store
 *.pem
 *.md
+# ignore until implement color blind mode
+*/chakra
+theme.js
+# 
 
 # debug
 npm-debug.log*

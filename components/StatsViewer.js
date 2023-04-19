@@ -64,8 +64,12 @@ function StatsViewer({
                     onMouseEnter={setHoverToggle.toggle}
                     onMouseLeave={setHoverToggle.toggle}
                     onClick={resetData}
+                    _hover={{
+                      color: "white",
+                      animation: "none",
+                    }}
                   >
-                    {!hoverToggle ? `${player}` : `Click to reset`}
+                    {hoverToggle ? `${player}` : `Click to reset`}
                   </Text>
                   <Text
                     color={"white"}

@@ -38,18 +38,21 @@ function SelectedCharacter({
       </Box>
     ));
   // use to calculate kills of selected legend on select
-  // useEffect(() => {
-  //     // selectedLegend[1] && selectedLegend[1].data.filter(val =>
-  //     //     val.name)
-  // },[selectedLegend])
+  useEffect(() => {
+    selectedLegend[1] &&
+      console.log(
+        "selected character data",
+        selectedLegend[1].data.map((val) => val.name)
+      );
+  }, [selectedLegend]);
 
   return (
     <GridItem
       fontFamily={"Apex Sub"}
       className={menuStyles.characterDisplayImage}
       opacity={`${selectedLegend[1]}` ? "100%" : "0%"}
-      height={"96vh"}
-      width={"44vw"}
+      //   height={"75vh"}
+      //   width={"44vw"}
       bgImage={
         selectedLegend[1]
           ? `url(${selectedLegend[1].ImgAssets.icon})`
@@ -65,6 +68,7 @@ function SelectedCharacter({
         templateColumns={"repeat(2, 1fr)"}
         columnGap={"1em"}
         p={"0.7em"}
+        position={"absolute"}
       >
         {mappedData && mappedData}
       </SimpleGrid>

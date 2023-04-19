@@ -9,7 +9,6 @@ import {
   FormHelperText,
   HStack,
   Container,
-  Flex,
 } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 
