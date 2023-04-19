@@ -38,9 +38,7 @@ function ClickableCharacter({
               position={"relative"}
               alt={`${name} selectable icon in menu`}
               style={{ transform: "skewX(18deg)" }}
-              // w={'6vw'}
-              h={"85px"}
-              // boxSize='90'
+              h={"77px"}
             />
           </Box>
           <Text bgColor={selectedLegend[0] === name ? "orange" : "gray"}>
@@ -61,9 +59,7 @@ function ClickableCharacter({
             position={"relative"}
             alt={`${name} none selectable icon in menu`}
             style={{ filter: "grayscale(100%)", transform: "skewX(18deg)" }}
-            // w={'6vw'}
-            h={"85px"}
-            // boxSize='90'
+            h={"77px"}
           />
           <Text>
             <p className={menuStyles.selectableName} color="rgb(161, 161, 161)">

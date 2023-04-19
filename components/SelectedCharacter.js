@@ -17,7 +17,7 @@ function SelectedCharacter({
     selectedLegend[1] &&
     selectedLegend[1].data.map((data) => (
       <Box
-        zIndex={5}
+        zIndex={1}
         display={"flex"}
         flexDirection={"column"}
         alignItems={"center"}
@@ -47,7 +47,7 @@ function SelectedCharacter({
       className={menuStyles.characterDisplayImage}
       opacity={`${selectedLegend[1]}` ? "100%" : "0%"}
       height={"96vh"}
-      width={"50vw"}
+      width={"44vw"}
       bgImage={
         selectedLegend[1]
           ? `url(${selectedLegend[1].ImgAssets.icon})`

@@ -76,17 +76,19 @@ function Layout(props) {
         searchUser={searchUser}
         foundStats={foundStats}
       />
-      <StatsViewer
-        player={player}
-        foundStats={foundStats}
-        selectedLegend={selectedLegend}
-        setSelectedLegend={setSelectedLegend}
-        hoveredLegend={hoveredLegend}
-        setHoveredLegend={setHoveredLegend}
-        recentlyUsedLegend={foundStats.recentlyUsedLegend}
-        parsedLegendData={parsedPlayerLegendData}
-        playerLegendData={playerLegendData}
-      />
+      {foundStats.playerName && (
+        <StatsViewer
+          player={player}
+          foundStats={foundStats}
+          selectedLegend={selectedLegend}
+          setSelectedLegend={setSelectedLegend}
+          hoveredLegend={hoveredLegend}
+          setHoveredLegend={setHoveredLegend}
+          recentlyUsedLegend={foundStats.recentlyUsedLegend}
+          parsedLegendData={parsedPlayerLegendData}
+          playerLegendData={playerLegendData}
+        />
+      )}
       {props.children}
     </Flex>
   );

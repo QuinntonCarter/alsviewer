@@ -36,36 +36,11 @@ function Characters({
 
   return (
     <Flex flexDirection={"column"}>
-      {/* ** */}
-      {/* {!selectedLegend[0] ? (
-        hoveredLegend[0] && (
-          <>
-            <Box
-              className={menuStyles.hoveredName}
-              border={"transparent"}
-              backgroundColor={"transparent"}
-            />
-            <Text className={menuStyles.hoveredNameDisplay}>
-              {hoveredLegend[0]}
-            </Text>
-          </>
-        )
-      ) : (
-        <>
-          <Box className={menuStyles.hoveredName} />
-          <Text className={menuStyles.hoveredNameDisplay}>
-            {selectedLegend[0]}
-          </Text>
-        </>
-      )} */}
-      {/* ** */}
       <SimpleGrid
         className={menuStyles.characterContainer}
         columns={5}
         gridRowGap={1}
         gridColumnGap={1}
-        // **
-        // position={'absolute'}
         top={"62vh"}
       >
         {mappedCharacters}
