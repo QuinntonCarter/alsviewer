@@ -8,6 +8,13 @@
   src: url("../fonts/apex-mk2.regular.otf");
 }
 
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+  margin: auto;
+}
+
 /* input styles */
 .inputStyles {
   height: 13vh;
