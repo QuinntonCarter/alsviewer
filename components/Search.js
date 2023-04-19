@@ -17,7 +17,6 @@ function Search({
   setPlatform,
   setPlayer,
   searchUser,
-  foundStats,
   error,
 }) {
   return (

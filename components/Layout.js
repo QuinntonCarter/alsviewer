@@ -48,7 +48,7 @@ function Layout(props) {
               currentBrRank: [res.data.global.rank],
               recentlyUsedLegend: res.data.legends.selected,
             },
-            console.log(res.data)
+            console.log("api response", res.data)
           ),
             setPlayerLegendData(res.data.legends.all);
         }
@@ -58,6 +58,10 @@ function Layout(props) {
 
   function showError(err) {
     setError(err);
+  }
+
+  function resetData() {
+    return setFoundStats({});
   }
 
   const parsedPlayerLegendData = Object.entries(playerLegendData).filter(
@@ -90,6 +94,7 @@ function Layout(props) {
           recentlyUsedLegend={foundStats.recentlyUsedLegend}
           parsedLegendData={parsedPlayerLegendData}
           playerLegendData={playerLegendData}
+          resetData={resetData}
         />
       )}
       {props.children}

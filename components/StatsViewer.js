@@ -1,5 +1,13 @@
-import React, { useState } from "react";
-import { Grid, Flex, Box, Text, GridItem, SimpleGrid } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import {
+  Grid,
+  Flex,
+  Box,
+  Text,
+  GridItem,
+  SimpleGrid,
+  useBoolean,
+} from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 import Image from "next/image";
 
@@ -16,10 +24,18 @@ function StatsViewer({
   setHoveredLegend,
   recentlyUsedLegend,
   playerLegendData,
+  resetData,
 }) {
   const [killsAsLegend, setKillsAsLegend] = useState([]);
   const selectingLegend = !selectedLegend[0] && !hoveredLegend[0];
   const canReselectLegend = selectedLegend[1] && !hoveredLegend[1]?.data;
+  const [hoverToggle, setHoverToggle] = useBoolean(false);
+
+  useEffect(() => {
+    if (hoverToggle) {
+      console.log("hovering name");
+    }
+  }, [hoverToggle]);
 
   return (
     <Flex
@@ -37,8 +53,17 @@ function StatsViewer({
                   zIndex={"0"}
                   className={menuStyles.totalKills}
                 >
-                  <Text fontSize="2xl" fontWeight={"black"} color={"orange"}>
-                    {`${player}`}
+                  <Text
+                    className={menuStyles.playerNameReset}
+                    fontSize="2xl"
+                    fontWeight={"black"}
+                    color={"orange"}
+                    title="Click here to start a new search"
+                    onMouseEnter={setHoverToggle.toggle}
+                    onMouseLeave={setHoverToggle.toggle}
+                    onClick={resetData}
+                  >
+                    {hoverToggle ? `${player}` : `Click here to restart`}
                   </Text>
                   <Text color={"white"} fontSize={"3xl"} fontWeight={"black"}>
                     {`Total Kills ${foundStats.totalData?.kills.value}`}

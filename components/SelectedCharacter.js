@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { GridItem, Text, Box } from "@chakra-ui/react";
+import { GridItem, Text, Box, SimpleGrid } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 
 function SelectedCharacter({
@@ -27,8 +27,10 @@ function SelectedCharacter({
         <Text
           backgroundColor={"transparent"}
           fontWeight={"bold"}
-          lineHeight={"7vh"}
+          lineHeight={"4vh"}
+          textAlign={"center"}
           color={"white"}
+          fontSize={"sm"}
         >
           {data.name === "Kills" ? `Kills as ${selectedLegend[0]}` : data.name}{" "}
           : {data.value}
@@ -55,7 +57,17 @@ function SelectedCharacter({
       }
       bgRepeat={"no-repeat"}
     >
-      {mappedData && mappedData}
+      <SimpleGrid
+        backdropFilter={"blur(2.5px)"}
+        borderRadius={"4px"}
+        width={"65%"}
+        m={"auto"}
+        templateColumns={"1fr 1fr"}
+        columnGap={"1em"}
+        p={"0.7em"}
+      >
+        {mappedData && mappedData}
+      </SimpleGrid>
     </GridItem>
   );
 }
