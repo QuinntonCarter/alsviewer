@@ -78,7 +78,6 @@ function StatsViewer({
                   selectedLegend={selectedLegend}
                   setKillsAsLegend={setKillsAsLegend}
                 />
-                {/* </GridItem> */}
               </SimpleGrid>
             </GridItem>
             <GridItem>

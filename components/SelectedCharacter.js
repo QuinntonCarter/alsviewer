@@ -62,7 +62,7 @@ function SelectedCharacter({
         borderRadius={"4px"}
         width={"65%"}
         m={"auto"}
-        templateColumns={"1fr 1fr"}
+        templateColumns={"repeat(2, 1fr)"}
         columnGap={"1em"}
         p={"0.7em"}
       >
