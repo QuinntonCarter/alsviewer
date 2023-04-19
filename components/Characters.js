@@ -1,6 +1,6 @@
 import React from "react";
 import menuStyles from "../styles/Menu.module.css";
-import { Text, Flex, SimpleGrid, Box } from "@chakra-ui/react";
+import { Flex, SimpleGrid } from "@chakra-ui/react";
 import ClickableCharacter from "./ClickableCharacter";
 
 function Characters({

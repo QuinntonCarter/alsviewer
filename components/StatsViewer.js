@@ -15,18 +15,16 @@ function StatsViewer({
   hoveredLegend,
   setHoveredLegend,
   recentlyUsedLegend,
-  parsedLegendData,
   playerLegendData,
 }) {
   const [killsAsLegend, setKillsAsLegend] = useState([]);
   const selectingLegend = !selectedLegend[0] && !hoveredLegend[0];
-
-  console.log("selected character", selectedLegend);
+  const canReselectLegend = selectedLegend[1] && !hoveredLegend[1]?.data;
 
   return (
     <Flex
       className={menuStyles.mainContainer}
-      onClick={() => selectedLegend[1] && setSelectedLegend("")}
+      onClick={() => canReselectLegend && setSelectedLegend("")}
     >
       {foundStats.totalData && (
         <GridItem w={"100%"}>
@@ -39,10 +37,10 @@ function StatsViewer({
                   zIndex={"0"}
                   className={menuStyles.totalKills}
                 >
-                  <Text fontSize="2xl" fontWeight={"black"}>
+                  <Text fontSize="2xl" fontWeight={"black"} color={"orange"}>
                     {`${player}`}
                   </Text>
-                  <Text color={"red"} fontSize={"3xl"} fontWeight={"black"}>
+                  <Text color={"white"} fontSize={"3xl"} fontWeight={"black"}>
                     {`Total Kills ${foundStats.totalData?.kills.value}`}
                   </Text>
                 </Box>
@@ -106,10 +104,10 @@ function StatsViewer({
               height={"50vh"}
               alt="Apex logo white"
             />
-            <Text textAlign={"center"} fontSize={"1.9vh"}>
+            <Text textAlign={"center"} fontSize={"1.9vh"} color={"orange"}>
               {player}
               <br />
-              <Text fontSize={"2.2vh"}>
+              <Text fontSize={"2.2vh"} color={"white"} fontWeight={"bold"}>
                 {selectedLegend[0]
                   ? selectedLegend[0]
                   : hoveredLegend[0]

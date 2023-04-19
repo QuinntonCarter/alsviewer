@@ -31,7 +31,7 @@
 
 /* Main container */
 .mainContainer {
-  background: linear-gradient(217deg, gold, orange, red);
+  background: linear-gradient(300deg, yellow, gold, orange, red);
   height: 100vh;
   overflow: hidden;
 }
@@ -52,26 +52,17 @@
 }
 
 .hoveredName {
-  /* ** */
-  /* z-index: 4; */
-  /* ** */
-
-  background-color: rgba(238, 238, 238, 0.315);
-  border-bottom: solid 1.7vh rgba(243, 243, 243, 0.384);
+  background-color: rgb(221 220 220 / 16%);
+  border-bottom: solid 1.7vh rgb(243 243 243 / 22%);
   width: 54.63vw;
   height: 12vh;
   position: absolute;
   transform: skewX(-28deg);
   transform-origin: bottom left;
-
-  /* testing */
-  /* background-color: rgba(235, 23, 23, 0.486);
-    border-bottom: solid 1.7vh rgba(173, 42, 42, 0.849); */
 }
 
 .hoveredNameDisplay {
-  color: rgba(97, 97, 97, 0.781);
-  /* margin-left: -7vw; */
+  color: #292929;
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -82,14 +73,11 @@
   font-family: Apex Sub;
   font-weight: bold;
   height: 5vh;
-  /* position: relative; */
-  /* top: 0 */
 }
 
 /* hovered + selected character display */
 .characterDisplay {
   /* uncomment after background added */
-  /* color: white; */
   font-family: Apex Sub;
   font-weight: bold;
   display: flex;
@@ -97,7 +85,7 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(4.2px);
-  background-color: rgba(255, 255, 255, 0.308);
+  background-color: rgb(216 216 216 / 34%);
   -webkit-backdrop-filter: blur(4.2px);
   background-position-x: 55vw;
   background-position-y: -2vh;
@@ -121,8 +109,6 @@
 
 .characterDisplay > p > span {
   font-size: 1.7vh;
-  /* ** */
-  /* position: absolute; */
 }
 
 .characterDisplayImage {
@@ -220,8 +206,4 @@
   align-items: center;
   background-color: #c2c4c4;
   width: 100%;
-}
-
-.selected {
-  /* max-height: 80px; */
 }

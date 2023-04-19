@@ -11,13 +11,11 @@ function ClickableCharacter({
   setHoveredLegend,
   setSelectedLegend,
 }) {
-  // set css styling based on data present; import from module.css
   const selectable = data
     ? selectedLegend[0] === name
       ? menuStyles.selected
       : menuStyles.selectable
     : menuStyles.notSelectable;
-
   return data ? (
     <Flex
       onMouseEnter={() => setHoveredLegend(legend)}

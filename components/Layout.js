@@ -66,17 +66,20 @@ function Layout(props) {
 
   return (
     <Flex flexDirection={"column"}>
-      <Header />
-      <Search
-        platform={platform}
-        setPlatform={setPlatform}
-        player={player}
-        error={error}
-        setPlayer={setPlayer}
-        searchUser={searchUser}
-        foundStats={foundStats}
-      />
-      {foundStats.playerName && (
+      {!foundStats.playerName ? (
+        <>
+          <Header />
+          <Search
+            platform={platform}
+            setPlatform={setPlatform}
+            player={player}
+            error={error}
+            setPlayer={setPlayer}
+            searchUser={searchUser}
+            foundStats={foundStats}
+          />
+        </>
+      ) : (
         <StatsViewer
           player={player}
           foundStats={foundStats}
