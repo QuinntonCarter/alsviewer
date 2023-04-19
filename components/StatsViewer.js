@@ -21,7 +21,7 @@ function StatsViewer({
   const [killsAsLegend, setKillsAsLegend] = useState([]);
   const selectingLegend = !selectedLegend[0] && !hoveredLegend[0];
 
-  // let viewableName = !hoveredLegend[0] ? selectedLegend[0] : hoveredLegend[0]
+  console.log("selected character", selectedLegend);
 
   return (
     <Flex
@@ -30,7 +30,7 @@ function StatsViewer({
     >
       {foundStats.totalData && (
         <GridItem w={"100%"}>
-          <Grid templateColumns={"45% 55%"}>
+          <Grid templateColumns={"50% 50%"}>
             <GridItem>
               <SimpleGrid templateRows={2} alignItems={"center"} zIndex={0}>
                 <Box

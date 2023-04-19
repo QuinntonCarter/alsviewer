@@ -53,7 +53,6 @@ function SelectedCharacter({
           ? `url(${selectedLegend[1].ImgAssets.icon})`
           : hoveredData && hoveredData.ImgAssets.icon
       }
-      bgPosition={"center"}
       bgRepeat={"no-repeat"}
     >
       {mappedData && mappedData}
