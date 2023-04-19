@@ -54,19 +54,34 @@ function StatsViewer({
                   className={menuStyles.totalKills}
                 >
                   <Text
-                    className={menuStyles.playerNameReset}
+                    className={`${menuStyles.playerNameReset} ${menuStyles.resetSelectable}`}
                     fontSize="2xl"
                     fontWeight={"black"}
                     color={"orange"}
+                    position={"absolute"}
+                    zIndex={4}
                     title="Click here to start a new search"
                     onMouseEnter={setHoverToggle.toggle}
                     onMouseLeave={setHoverToggle.toggle}
                     onClick={resetData}
                   >
-                    {!hoverToggle ? `${player}` : `Click here to restart`}
+                    {!hoverToggle ? `${player}` : `Click to reset`}
                   </Text>
-                  <Text color={"white"} fontSize={"3xl"} fontWeight={"black"}>
-                    {`Total Kills ${foundStats.totalData?.kills.value}`}
+                  <Text
+                    color={"white"}
+                    fontSize={"3xl"}
+                    fontWeight={"extrabold"}
+                  >
+                    {`Total Kills`}{" "}
+                    <span
+                      style={{
+                        color: "red",
+                        fontWeight: "black",
+                        fontSize: "55px",
+                      }}
+                    >
+                      {foundStats.totalData?.kills.value}
+                    </span>
                   </Text>
                 </Box>
                 <SelectedCharacter

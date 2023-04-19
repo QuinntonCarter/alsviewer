@@ -35,7 +35,7 @@
   height: 100vh;
   overflow: hidden;
 }
-
+/* 
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -43,7 +43,7 @@
   to {
     transform: rotate(359.99deg);
   }
-}
+} */
 
 /* Name above selectable characters */
 .characterNameContainer {
@@ -51,8 +51,21 @@
   justify-content: center;
 }
 
+@keyframes resetPulse {
+  0% {
+    color: rgb(255, 183, 0);
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: rgb(255, 183, 0);
+  }
+}
+
 .playerNameReset {
   cursor: pointer;
+  animation: resetPulse ease-in-out 2.5s infinite;
 }
 
 .hoveredName {
