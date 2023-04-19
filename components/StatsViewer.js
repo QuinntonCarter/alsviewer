@@ -63,7 +63,7 @@ function StatsViewer({
                     onMouseLeave={setHoverToggle.toggle}
                     onClick={resetData}
                   >
-                    {hoverToggle ? `${player}` : `Click here to restart`}
+                    {!hoverToggle ? `${player}` : `Click here to restart`}
                   </Text>
                   <Text color={"white"} fontSize={"3xl"} fontWeight={"black"}>
                     {`Total Kills ${foundStats.totalData?.kills.value}`}
