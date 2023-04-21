@@ -140,7 +140,7 @@ function StatsViewer({
         backgroundRepeat={"no-repeat"}
         className={menuStyles.characterDisplay}
       >
-        <Text fontSize={"2.7vh"}>
+        <Box name="border">
           <Flex display={"flex"} flexDirection={"row"}>
             <Image
               src={apexLogoWhite}
@@ -148,10 +148,20 @@ function StatsViewer({
               height={"50vh"}
               alt="Apex logo white"
             />
-            <Text textAlign={"center"} fontSize={"1.9vh"} color={"orange"}>
+            <Text
+              as="span"
+              textAlign={"center"}
+              fontSize={"1.9vh"}
+              color={"orange"}
+            >
               {player}
               <br />
-              <Text fontSize={"2.2vh"} color={"white"} fontWeight={"bold"}>
+              <Text
+                as="span"
+                fontSize={"2.2vh"}
+                color={"white"}
+                fontWeight={"bold"}
+              >
                 {selectedLegend[0]
                   ? selectedLegend[0]
                   : hoveredLegend[0]
@@ -160,7 +170,7 @@ function StatsViewer({
               </Text>
             </Text>
           </Flex>
-        </Text>
+        </Box>
       </Box>
     </Flex>
   );

@@ -52,7 +52,7 @@ function ClickableCharacter({
       </Box>
       <Text fontWeight={"normal"}>
         {/* edit styles so class only on Text component */}
-        <p className={menuStyles.selectableName}> {name} </p>
+        <span className={menuStyles.selectableName}> {name} </span>
       </Text>
     </Flex>
   ) : (
@@ -73,7 +73,10 @@ function ClickableCharacter({
       />
       <Text fontWeight={"normal"}>
         {/* edit styles so class only on Text component */}
-        <p className={menuStyles.selectableName}> {name} </p>
+        <Text className={menuStyles.selectableName} as="span">
+          {" "}
+          {name}{" "}
+        </Text>
       </Text>
     </Flex>
   );
