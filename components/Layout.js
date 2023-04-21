@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Container, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import axios from "axios";
 import Header from "./Header.js";
 import Search from "./Search.js";
@@ -38,19 +38,16 @@ function Layout(props) {
         if (res.data.Error) {
           showError(res.data.Error);
         } else {
-          setFoundStats(
-            {
-              // ** assign this all to variables to be passed down to statsviewer **
-              playerName: res.data.global.name,
-              playerLvl: res.data.global.level,
-              totalData: res.data.total,
-              banStatus: [res.data.global.bans],
-              currentArenaRank: [res.data.global.arena],
-              currentBrRank: [res.data.global.rank],
-              recentlyUsedLegend: res.data.legends.selected,
-            },
-            console.log("api response", res.data)
-          ),
+          setFoundStats({
+            // ** assign this all to variables to be passed down to statsviewer **
+            playerName: res.data.global.name,
+            playerLvl: res.data.global.level,
+            totalData: res.data.total,
+            banStatus: [res.data.global.bans],
+            currentArenaRank: [res.data.global.arena],
+            currentBrRank: [res.data.global.rank],
+            recentlyUsedLegend: res.data.legends.selected,
+          }),
             setPlayerLegendData(res.data.legends.all);
         }
       })

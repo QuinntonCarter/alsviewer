@@ -38,14 +38,6 @@ function SelectedCharacter({
         </Text>
       </Box>
     ));
-  // use to calculate kills of selected legend on select
-  useEffect(() => {
-    // selectedLegend[1] &&
-    //   console.log(
-    //     "selected character data",
-    //     selectedLegend[1].data.map((val) => val.name)
-    //   );
-  }, [selectedLegend]);
 
   return (
     <GridItem

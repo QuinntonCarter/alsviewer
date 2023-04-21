@@ -9,9 +9,9 @@ import {
   useBoolean,
 } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
+import apexLogoWhite from "../public/apex-logo-white.png";
 import Image from "next/image";
 
-import apexLogoWhite from "../public/apex-logo-white.png";
 import Characters from "./Characters";
 import SelectedCharacter from "./SelectedCharacter";
 

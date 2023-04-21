@@ -19,12 +19,6 @@ function ClickableCharacter({
 
   function selectLegend() {
     if (selectedLegend) {
-      console.log(
-        "selected legend",
-        legend,
-        "prev legend data",
-        selectedLegend
-      );
       setSelectedLegend(legend);
     }
     setSelectedLegend(legend);
