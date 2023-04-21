@@ -8,6 +8,17 @@
   src: url("../fonts/apex-mk2.regular.otf");
 }
 
+/* :root {
+  --font-size-18: clamp(18px * 0.9, (18 / 1440) * 100vw, 18px);
+} */
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+  margin: auto;
+}
+
 /* input styles */
 .inputStyles {
   height: 13vh;
@@ -129,13 +140,13 @@
 }
 
 .characterDisplayImage {
-  height: 96vh;
+  height: 75vh;
   align-content: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  background-position-y: -130%;
-  background-position-x: 70%;
+  background-position: center;
+  background-size: contain;
 }
 
 /* selectable grid */
@@ -203,6 +214,7 @@
 .selectableName {
   transform: skewX(21deg);
   font-family: Apex Sub;
+  font-size: clamp(1.125vw * 0.9, (1.125 / 1440) * 100vw, 1.125vw);
 }
 
 .notSelectable {

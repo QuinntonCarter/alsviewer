@@ -22,6 +22,7 @@ function Characters({
           data={entry[1].data}
           icon={entry[1].ImgAssets.icon}
           legend={entry}
+          key={entry[1].ImgAssets.icon}
         />
       ) : (
         entry.keys() !== "Global" && (
@@ -29,6 +30,7 @@ function Characters({
             selectedLegend={selectedLegend}
             name={entry[0]}
             icon={entry[1].ImgAssets.icon.split(" ").join("%20")}
+            key={entry[1].ImgAssets.icon}
           />
         )
       )

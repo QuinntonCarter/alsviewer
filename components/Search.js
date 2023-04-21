@@ -1,13 +1,14 @@
 import React from "react";
 import {
-  Flex,
   Input,
   RadioGroup,
   Radio,
-  Stack,
   Button,
   Text,
   FormControl,
+  FormHelperText,
+  HStack,
+  Container,
 } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 
@@ -20,56 +21,59 @@ function Search({
   error,
 }) {
   return (
-    <Flex
-      className={menuStyles.inputStyles}
-      experimental_spaceY={3}
-      flexDirection={"column"}
-    >
-      <Flex flexDirection={"row"} experimental_spaceX={3} padding={8}>
-        <RadioGroup
-          onChange={setPlatform}
-          value={platform}
-          title="Platform options"
-          m={"auto"}
+    <Container className={menuStyles.inputStyles} experimental_spaceX={3}>
+      <form onSubmit={searchUser} role="search">
+        <FormControl
+          as={"fieldset"}
+          className={menuStyles.searchForm}
+          isRequired
         >
-          <Stack direction="row" gap={"0.5em"}>
-            <Radio value="PS4"> PSN </Radio>
-            <Radio value="X1"> XBL </Radio>
-            <Radio value="PC"> PC </Radio>
-          </Stack>
-        </RadioGroup>
-        <form onSubmit={searchUser}>
-          <FormControl as={"fieldset"} isRequired>
-            <Input
-              width="auto"
-              placeholder="Player name"
-              onChange={(e) => setPlayer(e.target.value)}
-              title={
-                !platform ? "Select a platform first" : "Enter a player name"
-              }
-              isDisabled={!platform}
-            />
-            <Button
-              variant="outline"
-              title={
-                !platform || !player
-                  ? "Select platform and enter user information"
-                  : "Click search"
-              }
-              type="submit"
-              isDisabled={!platform || !player}
-            >
-              find player
-            </Button>
-          </FormControl>
-        </form>
-        <br />
-      </Flex>
-      <Text color={"red"} fontSize={"14"} fontWeight={"bold"}>
-        {error}
-      </Text>
-      {/* figure out error handling for display here */}
-    </Flex>
+          <RadioGroup
+            onChange={setPlatform}
+            value={platform}
+            title="Platform options"
+          >
+            <FormHelperText m={"1"}> Select a Platform </FormHelperText>
+            <HStack direction="row" gap={"0.5em"} isRequired>
+              <Radio value="PS4" aria-label="PS4">
+                PSN
+              </Radio>
+              <Radio value="X1" aria-label="X1">
+                XBL
+              </Radio>
+              <Radio value="PC" aria-label="PC">
+                PC
+              </Radio>
+            </HStack>
+          </RadioGroup>
+          <FormHelperText m={"1"}> Player Name </FormHelperText>
+          <Input
+            width="auto"
+            placeholder="Player name"
+            onChange={(e) => setPlayer(e.target.value)}
+            title={
+              !platform ? "Select a platform first" : "Enter a player name"
+            }
+            isRequired
+          />
+          <Button
+            variant="outline"
+            title={
+              !platform || !player
+                ? "Select platform and enter user information"
+                : "Click search"
+            }
+            type="submit"
+            isInvalid={!platform || !player}
+          >
+            find player
+          </Button>
+          <Text color={"red"} fontSize={"14"} fontWeight={"bold"}>
+            {error}
+          </Text>
+        </FormControl>
+      </form>
+    </Container>
   );
 }
 

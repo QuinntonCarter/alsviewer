@@ -22,7 +22,6 @@ function ClickableCharacter({
       onMouseLeave={() => setHoveredLegend("")}
       onClick={() => setSelectedLegend(legend)}
       className={selectable}
-      display={"flex"}
       title={`click to select ${name}`}
       flexDirection={"column"}
       borderWidth="2.7px"
@@ -37,16 +36,14 @@ function ClickableCharacter({
           h={"77px"}
         />
       </Box>
-      <Text
-        bgColor={selectedLegend[0] === name ? "orange" : "#C2C4C4"}
-        fontWeight={"normal"}
-      >
+      <Text fontWeight={"normal"}>
+        {/* edit styles so only on Text component */}
         <p className={menuStyles.selectableName}> {name} </p>
       </Text>
     </Flex>
   ) : (
     <Flex
-      className={`${selectable}`}
+      className={selectable}
       display={"flex"}
       title={`No player data provided by API for ${name}`}
       flexDirection={"column"}
@@ -61,6 +58,7 @@ function ClickableCharacter({
         h={"77px"}
       />
       <Text fontWeight={"normal"}>
+        {/* edit styles so only on Text component */}
         <p className={menuStyles.selectableName}> {name} </p>
       </Text>
     </Flex>

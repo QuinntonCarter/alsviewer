@@ -30,6 +30,7 @@ function Layout(props) {
       params: {
         platform: platform,
         player: player,
+        merge: true,
         auth: process.env.APEXAPIACCESS,
       },
     })
