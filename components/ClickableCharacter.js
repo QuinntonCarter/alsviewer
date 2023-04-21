@@ -16,11 +16,25 @@ function ClickableCharacter({
       ? menuStyles.selected
       : menuStyles.selectable
     : menuStyles.notSelectable;
+
+  function selectLegend() {
+    if (selectedLegend) {
+      console.log(
+        "selected legend",
+        legend,
+        "prev legend data",
+        selectedLegend
+      );
+      setSelectedLegend(legend);
+    }
+    setSelectedLegend(legend);
+  }
+
   return data ? (
     <Flex
       onMouseEnter={() => setHoveredLegend(legend)}
       onMouseLeave={() => setHoveredLegend("")}
-      onClick={() => setSelectedLegend(legend)}
+      onClick={selectLegend}
       className={selectable}
       title={`click to select ${name}`}
       flexDirection={"column"}

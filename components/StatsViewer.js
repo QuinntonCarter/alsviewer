@@ -32,10 +32,10 @@ function StatsViewer({
   const [hoverToggle, setHoverToggle] = useBoolean(false);
 
   useEffect(() => {
-    if (hoverToggle) {
-      console.log("hovering name");
+    if (selectedLegend) {
+      console.log(selectedLegend);
     }
-  }, [hoverToggle]);
+  }, [selectedLegend]);
 
   return (
     <Flex

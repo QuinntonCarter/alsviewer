@@ -8,11 +8,10 @@ function SelectedCharacter({
   recentlyUsedLegend,
   selectedLegend,
 }) {
-  // ** find way to map object values and if key contains 'kills' add value for more accurate total kills **
-  const totalKills = (kills, kills2, kills3) => {
-    let total;
-  };
-
+  console.log(
+    "selected legend from selected legend component",
+    selectedLegend[1] && selectedLegend[1].data
+  );
   const mappedData =
     selectedLegend[1] &&
     selectedLegend[1].data.map((data) => (
@@ -22,7 +21,7 @@ function SelectedCharacter({
         flexDirection={"column"}
         alignItems={"center"}
         justifyContent={"center"}
-        key={data.name + data.value}
+        key={selectedLegend[1]?.imgAssets?.icon}
       >
         <Text
           backgroundColor={"transparent"}
@@ -30,10 +29,12 @@ function SelectedCharacter({
           lineHeight={"4vh"}
           textAlign={"center"}
           color={"white"}
-          fontSize={"md"}
+          border={".23vw solid rgba(245, 167, 5, 0.8)"}
+          w={"100%"}
+          m={".32vw"}
         >
           {data.name === "Kills" ? `Kills as ${selectedLegend[0]}` : data.name}{" "}
-          : {data.value}
+          : <span style={{ fontSize: "2vw" }}> {data.value} </span>
         </Text>
       </Box>
     ));
@@ -68,6 +69,7 @@ function SelectedCharacter({
         p={"0.7em"}
         position={"absolute"}
         maxWidth={"40%"}
+        fontSize={"1.5vw"}
       >
         {mappedData && mappedData}
       </SimpleGrid>
