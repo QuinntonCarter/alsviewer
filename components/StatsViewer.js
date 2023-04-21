@@ -44,7 +44,7 @@ function StatsViewer({
     >
       {foundStats.totalData && (
         <GridItem w={"100%"}>
-          <Grid templateColumns={"50% 50%"}>
+          <Grid templateColumns={"repeat(2, 50%)"}>
             <GridItem>
               <SimpleGrid templateRows={2} alignItems={"center"} zIndex={0}>
                 <Box
@@ -103,7 +103,8 @@ function StatsViewer({
               <SimpleGrid templateRows={"auto 1fr"} rowGap={2.5}>
                 <Flex
                   className={menuStyles.characterNameContainer}
-                  pt={"0.3em"}
+                  flexDirection={"column"}
+                  pt={"4vh"}
                 >
                   <Box
                     className={menuStyles.hoveredName}

@@ -37,7 +37,7 @@ function ClickableCharacter({
         />
       </Box>
       <Text fontWeight={"normal"}>
-        {/* edit styles so only on Text component */}
+        {/* edit styles so class only on Text component */}
         <p className={menuStyles.selectableName}> {name} </p>
       </Text>
     </Flex>
@@ -58,7 +58,7 @@ function ClickableCharacter({
         h={"77px"}
       />
       <Text fontWeight={"normal"}>
-        {/* edit styles so only on Text component */}
+        {/* edit styles so class only on Text component */}
         <p className={menuStyles.selectableName}> {name} </p>
       </Text>
     </Flex>
