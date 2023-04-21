@@ -16,11 +16,25 @@ function ClickableCharacter({
       ? menuStyles.selected
       : menuStyles.selectable
     : menuStyles.notSelectable;
+
+  function selectLegend() {
+    if (selectedLegend) {
+      console.log(
+        "selected legend",
+        legend,
+        "prev legend data",
+        selectedLegend
+      );
+      setSelectedLegend(legend);
+    }
+    setSelectedLegend(legend);
+  }
+
   return data ? (
     <Flex
       onMouseEnter={() => setHoveredLegend(legend)}
       onMouseLeave={() => setHoveredLegend("")}
-      onClick={() => setSelectedLegend(legend)}
+      onClick={selectLegend}
       className={selectable}
       title={`click to select ${name}`}
       flexDirection={"column"}
@@ -37,8 +51,8 @@ function ClickableCharacter({
         />
       </Box>
       <Text fontWeight={"normal"}>
-        {/* edit styles so only on Text component */}
-        <p className={menuStyles.selectableName}> {name} </p>
+        {/* edit styles so class only on Text component */}
+        <span className={menuStyles.selectableName}> {name} </span>
       </Text>
     </Flex>
   ) : (
@@ -58,8 +72,11 @@ function ClickableCharacter({
         h={"77px"}
       />
       <Text fontWeight={"normal"}>
-        {/* edit styles so only on Text component */}
-        <p className={menuStyles.selectableName}> {name} </p>
+        {/* edit styles so class only on Text component */}
+        <Text className={menuStyles.selectableName} as="span">
+          {" "}
+          {name}{" "}
+        </Text>
       </Text>
     </Flex>
   );

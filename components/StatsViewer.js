@@ -32,10 +32,10 @@ function StatsViewer({
   const [hoverToggle, setHoverToggle] = useBoolean(false);
 
   useEffect(() => {
-    if (hoverToggle) {
-      console.log("hovering name");
+    if (selectedLegend) {
+      console.log(selectedLegend);
     }
-  }, [hoverToggle]);
+  }, [selectedLegend]);
 
   return (
     <Flex
@@ -44,7 +44,7 @@ function StatsViewer({
     >
       {foundStats.totalData && (
         <GridItem w={"100%"}>
-          <Grid templateColumns={"50% 50%"}>
+          <Grid templateColumns={"repeat(2, 50%)"}>
             <GridItem>
               <SimpleGrid templateRows={2} alignItems={"center"} zIndex={0}>
                 <Box
@@ -103,7 +103,8 @@ function StatsViewer({
               <SimpleGrid templateRows={"auto 1fr"} rowGap={2.5}>
                 <Flex
                   className={menuStyles.characterNameContainer}
-                  pt={"0.3em"}
+                  flexDirection={"column"}
+                  pt={"4vh"}
                 >
                   <Box
                     className={menuStyles.hoveredName}
@@ -139,7 +140,7 @@ function StatsViewer({
         backgroundRepeat={"no-repeat"}
         className={menuStyles.characterDisplay}
       >
-        <Text fontSize={"2.7vh"}>
+        <Box name="border">
           <Flex display={"flex"} flexDirection={"row"}>
             <Image
               src={apexLogoWhite}
@@ -147,10 +148,20 @@ function StatsViewer({
               height={"50vh"}
               alt="Apex logo white"
             />
-            <Text textAlign={"center"} fontSize={"1.9vh"} color={"orange"}>
+            <Text
+              as="span"
+              textAlign={"center"}
+              fontSize={"1.9vh"}
+              color={"orange"}
+            >
               {player}
               <br />
-              <Text fontSize={"2.2vh"} color={"white"} fontWeight={"bold"}>
+              <Text
+                as="span"
+                fontSize={"2.2vh"}
+                color={"white"}
+                fontWeight={"bold"}
+              >
                 {selectedLegend[0]
                   ? selectedLegend[0]
                   : hoveredLegend[0]
@@ -159,7 +170,7 @@ function StatsViewer({
               </Text>
             </Text>
           </Flex>
-        </Text>
+        </Box>
       </Box>
     </Flex>
   );

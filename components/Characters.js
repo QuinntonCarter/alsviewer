@@ -43,7 +43,7 @@ function Characters({
         columns={5}
         gridRowGap={1}
         gridColumnGap={1}
-        top={"62vh"}
+        top={"70px"}
       >
         {mappedCharacters}
       </SimpleGrid>

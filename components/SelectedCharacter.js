@@ -3,16 +3,10 @@ import { GridItem, Text, Box, SimpleGrid } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 
 function SelectedCharacter({
-  hoveredName,
   hoveredData,
   recentlyUsedLegend,
   selectedLegend,
 }) {
-  // ** find way to map object values and if key contains 'kills' add value for more accurate total kills **
-  const totalKills = (kills, kills2, kills3) => {
-    let total;
-  };
-
   const mappedData =
     selectedLegend[1] &&
     selectedLegend[1].data.map((data) => (
@@ -22,7 +16,7 @@ function SelectedCharacter({
         flexDirection={"column"}
         alignItems={"center"}
         justifyContent={"center"}
-        key={data.name + data.value}
+        key={selectedLegend[1]?.imgAssets?.icon}
       >
         <Text
           backgroundColor={"transparent"}
@@ -30,20 +24,23 @@ function SelectedCharacter({
           lineHeight={"4vh"}
           textAlign={"center"}
           color={"white"}
-          fontSize={"md"}
+          border={".23vw solid rgba(245, 4, 2, 0.6)"}
+          w={"100%"}
+          m={".32vw"}
+          key={selectedLegend[1]?.imgAssets?.banner}
         >
           {data.name === "Kills" ? `Kills as ${selectedLegend[0]}` : data.name}{" "}
-          : {data.value}
+          : <span style={{ fontSize: "2vw" }}> {data.value} </span>
         </Text>
       </Box>
     ));
   // use to calculate kills of selected legend on select
   useEffect(() => {
-    selectedLegend[1] &&
-      console.log(
-        "selected character data",
-        selectedLegend[1].data.map((val) => val.name)
-      );
+    // selectedLegend[1] &&
+    //   console.log(
+    //     "selected character data",
+    //     selectedLegend[1].data.map((val) => val.name)
+    //   );
   }, [selectedLegend]);
 
   return (
@@ -68,6 +65,7 @@ function SelectedCharacter({
         p={"0.7em"}
         position={"absolute"}
         maxWidth={"40%"}
+        fontSize={"1.5vw"}
       >
         {mappedData && mappedData}
       </SimpleGrid>
