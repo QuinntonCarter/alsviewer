@@ -30,7 +30,11 @@ function SelectedCharacter({
           key={selectedLegend[1]?.imgAssets?.banner}
         >
           {data.name === "Kills" ? `Kills as ${selectedLegend[0]}` : data.name}{" "}
-          : <span style={{ fontSize: "2vw" }}> {data.value} </span>
+          :{" "}
+          <Text as="spane" fontSize="2vw" padding="0.06vw">
+            {" "}
+            {data.value}{" "}
+          </Text>
         </Text>
       </Box>
     ));
