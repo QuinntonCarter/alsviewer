@@ -18,7 +18,7 @@ function Layout(props) {
   const [selectedLegend, setSelectedLegend] = useState([]);
 
   const [foundStats, setFoundStats] = useState({});
-  const [error, setError] = useState([]);
+  const [error, setError] = useState(null);
   const [playerLegendData, setPlayerLegendData] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -79,6 +79,7 @@ function Layout(props) {
             setPlatform={setPlatform}
             player={player}
             error={error}
+            setError={setError}
             setPlayer={setPlayer}
             searchUser={searchUser}
             foundStats={foundStats}

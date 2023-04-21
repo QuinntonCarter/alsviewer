@@ -19,10 +19,18 @@ function Search({
   setPlayer,
   searchUser,
   error,
+  setError,
 }) {
+  function clearError() {
+    if (error) {
+      setError(null);
+    }
+    return;
+  }
+
   return (
     <Container className={menuStyles.inputStyles} experimental_spaceX={3}>
-      <form onSubmit={searchUser} role="search">
+      <form onSubmit={searchUser} onClick={clearError} role="search">
         <FormControl
           as={"fieldset"}
           className={menuStyles.searchForm}
