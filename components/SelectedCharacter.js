@@ -30,7 +30,7 @@ function SelectedCharacter({
           lineHeight={"4vh"}
           textAlign={"center"}
           color={"white"}
-          fontSize={"sm"}
+          fontSize={"md"}
         >
           {data.name === "Kills" ? `Kills as ${selectedLegend[0]}` : data.name}{" "}
           : {data.value}
@@ -51,8 +51,7 @@ function SelectedCharacter({
       fontFamily={"Apex Sub"}
       className={menuStyles.characterDisplayImage}
       opacity={`${selectedLegend[1]}` ? "100%" : "0%"}
-      //   height={"75vh"}
-      //   width={"44vw"}
+      alignItems={"center"}
       bgImage={
         selectedLegend[1]
           ? `url(${selectedLegend[1].ImgAssets.icon})`
@@ -63,12 +62,12 @@ function SelectedCharacter({
       <SimpleGrid
         backdropFilter={"blur(2.5px)"}
         borderRadius={"4px"}
-        width={"65%"}
         m={"auto"}
-        templateColumns={"repeat(2, 1fr)"}
+        templateColumns={"repeat(2, auto)"}
         columnGap={"1em"}
         p={"0.7em"}
         position={"absolute"}
+        maxWidth={"40%"}
       >
         {mappedData && mappedData}
       </SimpleGrid>

@@ -36,16 +36,13 @@ function Search({
             <FormHelperText m={"1"}> Select a Platform </FormHelperText>
             <HStack direction="row" gap={"0.5em"} isRequired>
               <Radio value="PS4" aria-label="PS4">
-                {" "}
-                PSN{" "}
+                PSN
               </Radio>
               <Radio value="X1" aria-label="X1">
-                {" "}
-                XBL{" "}
+                XBL
               </Radio>
               <Radio value="PC" aria-label="PC">
-                {" "}
-                PC{" "}
+                PC
               </Radio>
             </HStack>
           </RadioGroup>
