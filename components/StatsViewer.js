@@ -31,12 +31,6 @@ function StatsViewer({
   const canReselectLegend = selectedLegend[1] && !hoveredLegend[1]?.data;
   const [hoverToggle, setHoverToggle] = useBoolean(false);
 
-  useEffect(() => {
-    if (selectedLegend) {
-      console.log(selectedLegend);
-    }
-  }, [selectedLegend]);
-
   return (
     <Flex
       className={menuStyles.mainContainer}

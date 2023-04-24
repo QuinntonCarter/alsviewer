@@ -4,7 +4,6 @@ import axios from "axios";
 import Header from "./Header.js";
 import Search from "./Search.js";
 import StatsViewer from "./StatsViewer.js";
-import menuStyles from "../styles/Menu.module.css";
 
 const apexAPI = axios.create({
   baseURL: process.env.APEXAPIURL,

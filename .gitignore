@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 *.md
+/pages*/api
 # ignore until implement color blind mode
 */chakra
 theme.js
