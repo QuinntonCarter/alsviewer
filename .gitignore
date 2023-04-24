@@ -18,7 +18,7 @@
 # misc
 .DS_Store
 *.pem
-*.md
+*notes.md
 /pages*/api
 # ignore until implement color blind mode
 */chakra
