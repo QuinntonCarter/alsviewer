@@ -5,6 +5,7 @@ import menuStyles from "../styles/Menu.module.css";
 function SelectedCharacter({
   hoveredData,
   recentlyUsedLegend,
+  setKillsAsLegend,
   selectedLegend,
 }) {
   const mappedData =
@@ -29,9 +30,8 @@ function SelectedCharacter({
           m={".32vw"}
           key={selectedLegend[1]?.imgAssets?.banner}
         >
-          {data.name === "Kills" ? `Kills as ${selectedLegend[0]}` : data.name}{" "}
-          :{" "}
-          <Text as="spane" fontSize="2vw" padding="0.06vw">
+          {data.name} :
+          <Text as="span" fontSize="2vw" padding="0.06vw">
             {" "}
             {data.value}{" "}
           </Text>

@@ -22,8 +22,9 @@ function Layout(props) {
 
   const [loading, setLoading] = useState(false);
 
-  function searchUser(e) {
+  async function searchUser(e) {
     e.preventDefault();
+    setLoading(true);
     apexAPI({
       method: "GET",
       params: {
@@ -35,8 +36,10 @@ function Layout(props) {
     })
       .then((res) => {
         if (res.data.Error) {
+          setLoading(false);
           showError(res.data.Error);
         } else {
+          setLoading(false);
           setFoundStats({
             // ** assign this all to variables to be passed down to statsviewer **
             playerName: res.data.global.name,
@@ -75,6 +78,7 @@ function Layout(props) {
             setPlatform={setPlatform}
             player={player}
             error={error}
+            loading={loading}
             setError={setError}
             setPlayer={setPlayer}
             searchUser={searchUser}

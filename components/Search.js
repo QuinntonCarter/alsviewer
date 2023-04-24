@@ -9,6 +9,7 @@ import {
   FormHelperText,
   HStack,
   Container,
+  Flex,
 } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 
@@ -20,6 +21,7 @@ function Search({
   searchUser,
   error,
   setError,
+  loading,
 }) {
   function clearError() {
     if (error) {
@@ -55,27 +57,31 @@ function Search({
             </HStack>
           </RadioGroup>
           <FormHelperText m={"1"}> Player Name </FormHelperText>
-          <Input
-            width="auto"
-            placeholder="Player name"
-            onChange={(e) => setPlayer(e.target.value)}
-            title={
-              !platform ? "Select a platform first" : "Enter a player name"
-            }
-            isRequired
-          />
-          <Button
-            variant="outline"
-            title={
-              !platform || !player
-                ? "Select platform and enter user information"
-                : "Click search"
-            }
-            type="submit"
-            isInvalid={!platform || !player}
-          >
-            find player
-          </Button>
+          <Flex flexDirection={"row"} gap={"0.5em"}>
+            <Input
+              width="60%"
+              placeholder="Player name"
+              onChange={(e) => setPlayer(e.target.value)}
+              title={
+                !platform ? "Select a platform first" : "Enter a player name"
+              }
+              isRequired
+            />
+            <Button
+              variant="outline"
+              title={
+                !platform || !player
+                  ? "Select platform and enter user information"
+                  : "Click search"
+              }
+              type="submit"
+              isInvalid={!platform || !player}
+              isDisabled={error}
+              isLoading={loading}
+            >
+              {!error ? "Search Player" : "Error"}
+            </Button>
+          </Flex>
           <Text color={"red"} fontSize={"14"} fontWeight={"bold"}>
             {error}
           </Text>
