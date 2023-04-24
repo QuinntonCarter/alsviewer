@@ -90,7 +90,7 @@
   background-color: rgb(221 220 220 / 16%);
   border-bottom: solid 1.7vh rgb(243 243 243 / 22%);
   width: 54.63vw;
-  height: 8.5vw;
+  height: 7.5vw;
   position: absolute;
   transform: skewX(-28deg);
   transform-origin: bottom left;
@@ -108,7 +108,7 @@
   font-size: 7.5vw;
   font-family: Apex Sub;
   font-weight: bold;
-  height: 10vw;
+  height: 9vw;
 }
 
 @media screen and (min-width: 1500px) {
@@ -138,16 +138,16 @@
   background-position-x: 55vw;
   background-position-y: -2vh;
   font-size: 3vh;
-  height: 14vh;
+  height: 12vh;
   width: 100%;
   margin-top: 2vh;
-  border-top: solid 2.2vh rgba(59, 59, 59, 0.671);
+  border-top: solid 1.5vh rgba(59, 59, 59, 0.671);
   bottom: 0;
 }
 
 .characterDisplay > div[name="border"] {
   border: 5px orange solid;
-  height: 13vh;
+  height: 11.5vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -173,7 +173,7 @@
 .characterContainer {
   display: flex;
   /* margin-top: 5vh; */
-  width: 94%;
+  width: 92%;
 }
 
 @media screen and (max-width: 764px) {
@@ -213,6 +213,7 @@
 }
 
 .selectable {
+  height: 12.5vh;
   transform: skewX(-21deg);
   border: solid #c2c4c4;
   margin: auto;
@@ -244,6 +245,7 @@
 }
 
 .notSelectable {
+  height: 12.5vh;
   transform: skewX(-21deg);
   border: solid #c2c4c4;
   margin: auto;

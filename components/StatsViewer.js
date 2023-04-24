@@ -94,7 +94,7 @@ function StatsViewer({
               </SimpleGrid>
             </GridItem>
             <GridItem>
-              <SimpleGrid templateRows={"auto 1fr"} rowGap={2.5}>
+              <SimpleGrid templateRows={"auto 1fr"}>
                 <Flex
                   className={menuStyles.characterNameContainer}
                   flexDirection={"column"}

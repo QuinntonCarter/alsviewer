@@ -41,7 +41,7 @@ function ClickableCharacter({
           position={"relative"}
           alt={`${name} selectable icon in menu`}
           style={{ transform: "skewX(18deg)" }}
-          h={"77px"}
+          h={"75px"}
         />
       </Box>
       <Text fontWeight={"normal"}>
@@ -63,7 +63,7 @@ function ClickableCharacter({
         position={"relative"}
         alt={`${name} none selectable icon in menu`}
         style={{ filter: "grayscale(100%)", transform: "skewX(18deg)" }}
-        h={"77px"}
+        h={"75px"}
       />
       <Text fontWeight={"normal"}>
         {/* edit styles so class only on Text component */}
