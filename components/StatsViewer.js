@@ -98,7 +98,7 @@ function StatsViewer({
                 <Flex
                   className={menuStyles.characterNameContainer}
                   flexDirection={"column"}
-                  pt={"4vh"}
+                  pt={"1.7vh"}
                 >
                   <Box
                     className={menuStyles.hoveredName}
