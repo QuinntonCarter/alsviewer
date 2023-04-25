@@ -51,8 +51,8 @@ function Search({
               <Radio value="X1" aria-label="X1">
                 XBL
               </Radio>
-              <Radio value="PC" aria-label="PC">
-                PC
+              <Radio value="PC" aria-label="PC (EA account)">
+                PC (EA account)
               </Radio>
             </HStack>
           </RadioGroup>
