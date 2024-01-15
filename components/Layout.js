@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Flex } from "@chakra-ui/react";
 import axios from "axios";
 import Header from "./Header.js";
@@ -6,7 +6,8 @@ import Search from "./Search.js";
 import StatsViewer from "./StatsViewer.js";
 
 const apexAPI = axios.create({
-  baseURL: process.env.APEXAPIURL,
+  baseURL: process.env.APEX_API_URL,
+  // auth: process.env.APEX_API_ACCESS,
 });
 
 function Layout(props) {
@@ -22,18 +23,35 @@ function Layout(props) {
 
   const [loading, setLoading] = useState(false);
 
-  async function searchUser(e) {
+  async function searchUser(e, player, platform) {
     e.preventDefault();
     setLoading(true);
-    apexAPI({
-      method: "GET",
-      params: {
-        platform: platform,
-        player: player,
-        merge: true,
-        auth: process.env.APEXAPIACCESS,
-      },
-    })
+    axios
+      .get("https://api.mozambiquehe.re/bridge", {
+        params: {
+          auth: process.env.APEX_API_ACCESS,
+          player: player,
+          platform: platform,
+          // merge: true,
+        },
+      })
+      // if (!res) {
+      //   setLoading(false);
+      //   setError("Error retrieving player data");
+      // }
+      // setFoundStats({
+      //   // ** assign this all to variables to be passed down to statsviewer **
+      //   playerName: res.data.global.name,
+      //   playerLvl: res.data.global.level,
+      //   totalData: res.data.total,
+      //   banStatus: [res.data.global.bans],
+      //   currentArenaRank: [res.data.global.arena],
+      //   currentBrRank: [res.data.global.rank],
+      //   recentlyUsedLegend: res.data.legends.selected,
+      // }),
+      //   setPlayerLegendData(res.data.legends.all);
+      // setLoading(false);
+
       .then((res) => {
         if (res.data.Error) {
           setLoading(false);
@@ -68,8 +86,41 @@ function Layout(props) {
     (entry) => entry[1].data
   );
 
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("https://api.mozambiquehe.re/bridge", {
+        params: {
+          auth: process.env.APEX_API_ACCESS,
+          player: "malcolm hex",
+          platform: "PS4",
+          // merge: true,
+        },
+      })
+      .then((res) => {
+        if (res.data.Error) {
+          setLoading(false);
+          showError(res.data.Error);
+        } else {
+          setLoading(false);
+          setFoundStats({
+            // ** assign this all to variables to be passed down to statsviewer **
+            playerName: res.data.global.name,
+            playerLvl: res.data.global.level,
+            totalData: res.data.total,
+            banStatus: [res.data.global.bans],
+            currentArenaRank: [res.data.global.arena],
+            currentBrRank: [res.data.global.rank],
+            recentlyUsedLegend: res.data.legends.selected,
+          }),
+            setPlayerLegendData(res.data.legends.all);
+        }
+      })
+      .catch((err) => showError(err.response.data.Error));
+  }, []);
+
   return (
-    <Flex flexDirection={"column"}>
+    <Flex flexDirection={"column"} className="appContainer">
       {!foundStats.playerName ? (
         <>
           <Header />

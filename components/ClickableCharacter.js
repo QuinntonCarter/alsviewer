@@ -1,6 +1,8 @@
-import { Box, Image, Flex, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Box, Image, Flex, Text, IconButton } from "@chakra-ui/react";
+// import { QuestionOutlineIcon } from "@chakra-ui/icons";
 import menuStyles from "../styles/Menu.module.css";
+import axios from "axios";
 
 function ClickableCharacter({
   name,
@@ -11,6 +13,7 @@ function ClickableCharacter({
   setHoveredLegend,
   setSelectedLegend,
 }) {
+  const [missingImg, setMissingImg] = useState(false);
   const selectable = data
     ? selectedLegend[0] === name
       ? menuStyles.selected
@@ -24,6 +27,27 @@ function ClickableCharacter({
     setSelectedLegend(legend);
   }
 
+  useEffect(() => {
+    (async function checkMemeAvailaibility() {
+      // if(i === )
+      // setIsLoading(true);
+      await axios
+        .get(icon)
+        // if get response, leave missing state as false
+        .then((response) => {
+          console.log(response);
+          setMissingImg((prevState) => prevState);
+        })
+        // if error response, setMissing(true)
+        .catch((error) => {
+          console.log(error);
+          // maybe setup so small error modal returns # of missing memes
+          setMissingImg(true);
+          // setErrors(error);
+        });
+    })();
+  }, []);
+
   return data ? (
     <Flex
       onMouseEnter={() => setHoveredLegend(legend)}
@@ -36,6 +60,9 @@ function ClickableCharacter({
       align={"center"}
     >
       <Box bgColor={"transparent"}>
+        {/* {missingImg ? (
+          <Text as="p"> No Image</Text>
+        ) : ( */}
         <Image
           src={icon}
           position={"relative"}
@@ -43,6 +70,7 @@ function ClickableCharacter({
           style={{ transform: "skewX(18deg)" }}
           h={"75px"}
         />
+        {/* // )} */}
       </Box>
       <Text fontWeight={"normal"}>
         {/* edit styles so class only on Text component */}

@@ -2,8 +2,8 @@
 
 const nextConfig = {
   env: {
-    APEXAPIACCESS: process.env.APEXAPIACCESS,
-    APEXAPIURL: process.env.APEXAPIURL,
+    APEX_API_ACCESS: process.env.APEX_API_ACCESS,
+    APEX_API_URL: process.env.APEX_API_URL,
   },
 };
 
