@@ -36,7 +36,7 @@ function Search({
         <FormControl
           as={"fieldset"}
           className={menuStyles.searchForm}
-          isRequired
+          isrequired
         >
           <RadioGroup
             onChange={setPlatform}
@@ -44,7 +44,7 @@ function Search({
             title="Platform options"
           >
             <FormHelperText m={"1"}> Select a Platform </FormHelperText>
-            <HStack direction="row" gap={"0.5em"} isRequired>
+            <HStack direction="row" gap={"0.5em"} isrequired>
               <Radio value="PS4" aria-label="PS4">
                 PSN
               </Radio>
@@ -65,7 +65,7 @@ function Search({
               title={
                 !platform ? "Select a platform first" : "Enter a player name"
               }
-              isRequired
+              isrequired
             />
             <Button
               variant="outline"
@@ -75,7 +75,7 @@ function Search({
                   : "Click search"
               }
               type="submit"
-              isInvalid={!platform || !player}
+              isinvalid={!platform || !player}
               isDisabled={error}
               isLoading={loading}
             >

@@ -26,27 +26,27 @@ function ClickableCharacter({
     }
     setSelectedLegend(legend);
   }
-
-  useEffect(() => {
-    (async function checkMemeAvailaibility() {
-      // if(i === )
-      // setIsLoading(true);
-      await axios
-        .get(icon)
-        // if get response, leave missing state as false
-        .then((response) => {
-          console.log(response);
-          setMissingImg((prevState) => prevState);
-        })
-        // if error response, setMissing(true)
-        .catch((error) => {
-          console.log(error);
-          // maybe setup so small error modal returns # of missing memes
-          setMissingImg(true);
-          // setErrors(error);
-        });
-    })();
-  }, []);
+  // lost image issue **
+  // useEffect(() => {
+  //   (async function checkMemeAvailaibility() {
+  //     //   // if(i === )
+  //     //   // setIsLoading(true);
+  //     axios
+  //       .get(icon)
+  //       // if get response, leave missing state as false
+  //       .then((response) => {
+  //         console.log("success", response.status);
+  //         setMissingImg((prevState) => prevState);
+  //       })
+  //       // if error response, setMissing(true)
+  //       .catch((error) => {
+  //         console.log("error", error);
+  //         // maybe setup so small error modal returns # of missing memes
+  //         setMissingImg(true);
+  //         // setErrors(error);
+  //       });
+  //   })();
+  // }, []);
 
   return data ? (
     <Flex
