@@ -4,11 +4,13 @@ import { Flex, SimpleGrid } from "@chakra-ui/react";
 import ClickableCharacter from "./ClickableCharacter";
 
 function Characters({
-  playerLegendData,
+  playerLegendData, // this is the unparsed version in v1 of app, need to pass
   selectedLegend,
   setHoveredLegend,
   setSelectedLegend,
 }) {
+  // console.log("player legend data", playerLegendData);
+  // **
   // filters out "global" entry and returns player data to be viewed in selection chart
   const mappedCharacters = Object.entries(playerLegendData)
     .filter((entry) => entry[0] !== "Global")
@@ -38,7 +40,8 @@ function Characters({
 
   return (
     <Flex flexDirection={"column"}>
-      <SimpleGrid
+      <p> character container placeholder debug </p>
+      {/* <SimpleGrid
         className={menuStyles.characterContainer}
         columns={5}
         gridRowGap={1}
@@ -46,7 +49,7 @@ function Characters({
         top={"70px"}
       >
         {mappedCharacters}
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Flex>
   );
 }

@@ -48,93 +48,97 @@ function StatsViewer({
         className={menuStyles.mainContainer}
         onClick={() => canReselectLegend && setSelectedLegend("")}
       >
-        {foundStats.totalData && (
-          <GridItem w={"100%"}>
-            <Grid templateColumns={"repeat(2, 50%)"}>
-              <GridItem>
-                <SimpleGrid templateRows={2} alignItems={"center"} zIndex={0}>
-                  <Box
-                    gridRow={1}
-                    m={"6em 1.5em 0em 1.5em"}
-                    zIndex={"0"}
-                    className={menuStyles.totalKills}
-                  >
-                    <Text
-                      className={`${menuStyles.playerNameReset} ${menuStyles.resetSelectable}`}
-                      fontSize="2xl"
-                      fontWeight={"black"}
-                      color={"orange"}
-                      position={"absolute"}
-                      zIndex={4}
-                      title="Click here to start a new search"
-                      onMouseEnter={setHoverToggle.toggle}
-                      onMouseLeave={setHoverToggle.toggle}
-                      onClick={resetData}
-                      _hover={{
-                        color: "white",
-                        animation: "none",
-                      }}
+        <GridItem w={"100%"}>
+          <Grid templateColumns={"repeat(2, 50%)"}>
+            {foundStats.totalData && (
+              <>
+                <GridItem>
+                  <SimpleGrid templateRows={2} alignItems={"center"} zIndex={0}>
+                    <Box
+                      gridRow={1}
+                      m={"6em 1.5em 0em 1.5em"}
+                      zIndex={"0"}
+                      className={menuStyles.totalKills}
                     >
-                      {hoverToggle ? `${playerOrDefault}` : `Click to reset`}
-                    </Text>
-                    <Text
-                      color={"white"}
-                      fontSize={"3xl"}
-                      fontWeight={"extrabold"}
-                    >
-                      {`Total Kills`}{" "}
-                      <span
-                        style={{
-                          color: "red",
-                          fontWeight: "black",
-                          fontSize: "55px",
+                      <Text
+                        className={`${menuStyles.playerNameReset} ${menuStyles.resetSelectable}`}
+                        fontSize="2xl"
+                        fontWeight={"black"}
+                        color={"orange"}
+                        position={"absolute"}
+                        zIndex={4}
+                        title="Click here to start a new search"
+                        onMouseEnter={setHoverToggle.toggle}
+                        onMouseLeave={setHoverToggle.toggle}
+                        onClick={resetData}
+                        _hover={{
+                          color: "white",
+                          animation: "none",
                         }}
                       >
-                        {foundStats.totalData?.kills.value}
-                      </span>
-                    </Text>
-                  </Box>
-                  <SelectedCharacter
-                    gridRow={2}
-                    recentlyUsedLegend={recentlyUsedLegend}
-                    foundStats={foundStats}
-                    hoveredName={hoveredLegend[0]}
-                    hoveredData={hoveredLegend[1]}
-                    selectedLegend={selectedLegend}
-                    setKillsAsLegend={setKillsAsLegend}
-                  />
-                </SimpleGrid>
-              </GridItem>
-              <GridItem>
-                <SimpleGrid templateRows={"auto 1fr"}>
-                  <Flex
-                    className={menuStyles.characterNameContainer}
-                    flexDirection={"column"}
-                    pt={"1.7vh"}
-                  >
-                    <Box
-                      className={menuStyles.hoveredName}
-                      border={selectingLegend && "transparent"}
-                      backgroundColor={selectingLegend && "transparent"}
+                        {hoverToggle ? `${playerOrDefault}` : `Click to reset`}
+                      </Text>
+                      <Text
+                        color={"white"}
+                        fontSize={"3xl"}
+                        fontWeight={"extrabold"}
+                      >
+                        {`Total Kills`}{" "}
+                        <span
+                          style={{
+                            color: "red",
+                            fontWeight: "black",
+                            fontSize: "55px",
+                          }}
+                        >
+                          {foundStats.totalData?.kills?.value || "No data"}
+                        </span>
+                      </Text>
+                    </Box>
+                    <SelectedCharacter
+                      gridRow={2}
+                      recentlyUsedLegend={recentlyUsedLegend}
+                      foundStats={foundStats}
+                      hoveredName={hoveredLegend[0]}
+                      hoveredData={hoveredLegend[1]}
+                      selectedLegend={selectedLegend}
+                      setKillsAsLegend={setKillsAsLegend}
                     />
-                    <Text className={menuStyles.hoveredNameDisplay}>
-                      {selectedLegend[0] ? selectedLegend[0] : hoveredLegend[0]}
-                    </Text>
-                  </Flex>
-                  <Characters
-                    position={"absolute"}
-                    legends={foundStats}
-                    playerLegendData={playerLegendData}
-                    hoveredLegend={hoveredLegend}
-                    selectedLegend={selectedLegend}
-                    setHoveredLegend={setHoveredLegend}
-                    setSelectedLegend={setSelectedLegend}
-                  />
-                </SimpleGrid>
-              </GridItem>
-            </Grid>
-          </GridItem>
-        )}
+                  </SimpleGrid>
+                </GridItem>
+                <GridItem>
+                  <SimpleGrid templateRows={"auto 1fr"}>
+                    <Flex
+                      className={menuStyles.characterNameContainer}
+                      flexDirection={"column"}
+                      pt={"1.7vh"}
+                    >
+                      <Box
+                        className={menuStyles.hoveredName}
+                        border={selectingLegend && "transparent"}
+                        backgroundColor={selectingLegend && "transparent"}
+                      />
+                      <Text className={menuStyles.hoveredNameDisplay}>
+                        {selectedLegend[0]
+                          ? selectedLegend[0]
+                          : hoveredLegend[0]}
+                      </Text>
+                    </Flex>
+                    <Characters
+                      position={"absolute"}
+                      legends={foundStats}
+                      playerLegendData={playerLegendData}
+                      hoveredLegend={hoveredLegend}
+                      selectedLegend={selectedLegend}
+                      setHoveredLegend={setHoveredLegend}
+                      setSelectedLegend={setSelectedLegend}
+                    />
+                  </SimpleGrid>
+                </GridItem>
+              </>
+            )}
+          </Grid>
+        </GridItem>
         {/* selectedLegend Name lowest bar Display */}
         <Box
           display={!foundStats.totalData && "none"}

@@ -1,20 +1,33 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import useSWR from "swr";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-const usePlayer = (player, platform) => {
-  const [foundStats, setFoundStats] = useState({});
-  const [playerLegendData, setPlayerLegendData] = useState([]);
+const usePlayer = (
+  player,
+  platform,
+  setLoading,
+  setFoundStats,
+  setPlayerLegendData,
+  shouldFetch,
+  setShouldFetch,
+  parsedPlayerLegendData
+) => {
   const { data, error, isLoading } = useSWR(
-    `https://api.mozambiquehe.re/bridge?auth=${process.env.APEX_API_ACCESS}&player=${player}&platform=${platform}`,
+    shouldFetch
+      ? `https://api.mozambiquehe.re/bridge?auth=${process.env.APEX_API_ACCESS}&player=${player}&platform=${platform}`
+      : null,
     fetcher
   );
 
+  console.log("fetch response from hook", data);
+
   useEffect(() => {
+    // set loading to swr loading
+    setLoading(isLoading);
     // if data
     if (data) {
-      let parsedPlayerLegendData = Object.entries(data.legends.all).filter(
+      parsedPlayerLegendData.current = Object.entries(data.legends.all).filter(
         (entry) => entry[1].data
       );
       // set response data to state on successful fetch
@@ -27,24 +40,16 @@ const usePlayer = (player, platform) => {
         currentBrRank: [data.global.rank],
         recentlyUsedLegend: data.legends.selected,
       });
-      setPlayerLegendData(parsedPlayerLegendData);
-      console.log("got data?", data, "parsed", parsedPlayerLegendData);
+      setPlayerLegendData(data.legends.all);
+      parsedPlayerLegendData.current = Object.entries(data.legends.all).filter(
+        (entry) => entry[1].data
+      );
+      setShouldFetch(false);
     }
   }, [data]);
 
-  if (isLoading) return <p> Loading... </p>;
-  if (error)
-    return (
-      <p>
-        error retrieving data
-        {console.log("error retrieving player data", error)}
-      </p>
-    );
   return {
-    // SWR response of only needed data
-    foundStats,
-    playerLegendData,
-    // SWR
+    // SWR response of only needed info
     isLoading,
     isError: error,
   };
