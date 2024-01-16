@@ -25,56 +25,55 @@ function Layout(props) {
 
   // const [loading, setLoading] = useState(false); ** don't need?
 
-  // async function searchUser(e, player, platform) {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   axios
-  //     .get("https://api.mozambiquehe.re/bridge", {
-  //       params: {
-  //         auth: process.env.APEX_API_ACCESS,
-  //         player: player,
-  //         platform: platform,
-  //         // merge: true,
-  //       },
-  //     })
-  // if (!res) {
-  //   setLoading(false);
-  //   setError("Error retrieving player data");
-  // }
-  // setFoundStats({
-  //   // ** assign this all to variables to be passed down to statsviewer **
-  //   playerName: res.data.global.name,
-  //   playerLvl: res.data.global.level,
-  //   totalData: res.data.total,
-  //   banStatus: [res.data.global.bans],
-  //   currentArenaRank: [res.data.global.arena],
-  //   currentBrRank: [res.data.global.rank],
-  //   recentlyUsedLegend: res.data.legends.selected,
-  // }),
-  //   setPlayerLegendData(res.data.legends.all);
-  // setLoading(false);
-
-  //     .then((res) => {
-  //       if (res.data.Error) {
-  //         setLoading(false);
-  //         showError(res.data.Error);
-  //       } else {
-  //         setLoading(false);
-  //         setFoundStats({
-  //           // ** assign this all to variables to be passed down to statsviewer **
-  //           playerName: res.data.global.name,
-  //           playerLvl: res.data.global.level,
-  //           totalData: res.data.total,
-  //           banStatus: [res.data.global.bans],
-  //           currentArenaRank: [res.data.global.arena],
-  //           currentBrRank: [res.data.global.rank],
-  //           recentlyUsedLegend: res.data.legends.selected,
-  //         }),
-  //           setPlayerLegendData(res.data.legends.all);
-  //       }
-  //     })
-  //     .catch((err) => showError(err.response.data.Error));
-  // }
+  async function searchUser(e, player, platform) {
+    e.preventDefault();
+    //   setLoading(true);
+    //   axios
+    //     .get("https://api.mozambiquehe.re/bridge", {
+    //       params: {
+    //         auth: process.env.APEX_API_ACCESS,
+    //         player: player,
+    //         platform: platform,
+    //         // merge: true,
+    //       },
+    //     })
+    // if (!res) {
+    //   setLoading(false);
+    //   setError("Error retrieving player data");
+    // }
+    // setFoundStats({
+    //   // ** assign this all to variables to be passed down to statsviewer **
+    //   playerName: res.data.global.name,
+    //   playerLvl: res.data.global.level,
+    //   totalData: res.data.total,
+    //   banStatus: [res.data.global.bans],
+    //   currentArenaRank: [res.data.global.arena],
+    //   currentBrRank: [res.data.global.rank],
+    //   recentlyUsedLegend: res.data.legends.selected,
+    // }),
+    //   setPlayerLegendData(res.data.legends.all);
+    // setLoading(false);
+    //     .then((res) => {
+    //       if (res.data.Error) {
+    //         setLoading(false);
+    //         showError(res.data.Error);
+    //       } else {
+    //         setLoading(false);
+    //         setFoundStats({
+    //           // ** assign this all to variables to be passed down to statsviewer **
+    //           playerName: res.data.global.name,
+    //           playerLvl: res.data.global.level,
+    //           totalData: res.data.total,
+    //           banStatus: [res.data.global.bans],
+    //           currentArenaRank: [res.data.global.arena],
+    //           currentBrRank: [res.data.global.rank],
+    //           recentlyUsedLegend: res.data.legends.selected,
+    //         }),
+    //           setPlayerLegendData(res.data.legends.all);
+    //       }
+    //     })
+    //     .catch((err) => showError(err.response.data.Error));
+  }
 
   function showError(err) {
     setError(err);

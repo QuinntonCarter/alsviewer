@@ -29,7 +29,7 @@ function Characters({
           <ClickableCharacter
             selectedLegend={selectedLegend}
             name={entry[0]}
-            icon={entry[1].ImgAssets.icon.split(" ").join("%20")}
+            icon={entry[1].ImgAssets.icon.split(" ").join("%20")} // error: Cannot read properties of undefined (reading 'icon')
             key={entry[1].ImgAssets.icon}
           />
         )
