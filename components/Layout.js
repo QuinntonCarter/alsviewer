@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Container, Flex, Spinner } from "@chakra-ui/react";
-// import useSWR from "swr";
 import usePlayer from "../hooks/usePlayer.js";
 import Header from "./Header.js";
 import Search from "./Search.js";
@@ -50,14 +49,19 @@ function Layout(props) {
     parsedPlayerLegendData.current = null;
   }
 
-  if (loading)
+  if (isLoading || loading)
     return (
-      <Container>
-        <Flex direction={"column"}>
-          <Spinner />
-          <br />
-          Loading...
-        </Flex>
+      <Container
+        width={"100vw"}
+        height={"100vh"}
+        flex-wrap={"wrap"}
+        display={"flex"}
+        flexDir={"column"}
+        justify-content={"center"}
+        align-content={"center"}
+        margin={"auto"}
+      >
+        <Spinner margin={"auto"} />
       </Container>
     );
   if (isError) return <div>Failed to reach API</div>;

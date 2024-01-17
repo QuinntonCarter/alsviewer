@@ -44,6 +44,8 @@
 
 /* input styles */
 .inputStyles {
+  padding: 0px;
+  margin: 0px;
   height: 13vh;
   justify-items: center;
   align-items: center;

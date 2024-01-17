@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Box, Image, Flex, Text, IconButton } from "@chakra-ui/react";
-// import { QuestionOutlineIcon } from "@chakra-ui/icons";
+import React, { useState } from "react";
+import { Box, Image, Flex, Text } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
-import axios from "axios";
 
 function ClickableCharacter({
   name,
@@ -26,27 +24,6 @@ function ClickableCharacter({
     }
     setSelectedLegend(legend);
   }
-  // lost image issue **
-  // useEffect(() => {
-  //   (async function checkMemeAvailaibility() {
-  //     //   // if(i === )
-  //     //   // setIsLoading(true);
-  //     axios
-  //       .get(icon)
-  //       // if get response, leave missing state as false
-  //       .then((response) => {
-  //         console.log("success", response.status);
-  //         setMissingImg((prevState) => prevState);
-  //       })
-  //       // if error response, setMissing(true)
-  //       .catch((error) => {
-  //         console.log("error", error);
-  //         // maybe setup so small error modal returns # of missing memes
-  //         setMissingImg(true);
-  //         // setErrors(error);
-  //       });
-  //   })();
-  // }, []);
 
   return data ? (
     <Flex
@@ -60,9 +37,6 @@ function ClickableCharacter({
       align={"center"}
     >
       <Box bgColor={"transparent"}>
-        {/* {missingImg ? (
-          <Text as="p"> No Image</Text>
-        ) : ( */}
         <Image
           src={icon}
           position={"relative"}
@@ -70,7 +44,6 @@ function ClickableCharacter({
           style={{ transform: "skewX(18deg)" }}
           h={"75px"}
         />
-        {/* // )} */}
       </Box>
       <Text fontWeight={"normal"}>
         {/* edit styles so class only on Text component */}
@@ -96,8 +69,7 @@ function ClickableCharacter({
       <Text fontWeight={"normal"}>
         {/* edit styles so class only on Text component */}
         <Text className={menuStyles.selectableName} as="span">
-          {" "}
-          {name}{" "}
+          {name}
         </Text>
       </Text>
     </Flex>

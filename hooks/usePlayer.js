@@ -20,7 +20,14 @@ const usePlayer = (
     fetcher
   );
 
-  console.log("fetch response from hook", data);
+  console.log(
+    "fetch response from hook",
+    data,
+    "error from hook",
+    error,
+    "is loading from hook",
+    isLoading
+  );
 
   useEffect(() => {
     // set loading to swr loading

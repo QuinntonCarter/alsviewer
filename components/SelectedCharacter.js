@@ -1,13 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { GridItem, Text, Box, SimpleGrid } from "@chakra-ui/react";
 import menuStyles from "../styles/Menu.module.css";
 
-function SelectedCharacter({
-  hoveredData,
-  recentlyUsedLegend,
-  setKillsAsLegend,
-  selectedLegend,
-}) {
+function SelectedCharacter({ hoveredData, selectedLegend }) {
   const mappedData =
     selectedLegend[1] &&
     selectedLegend[1].data.map((data) => (
@@ -32,8 +27,7 @@ function SelectedCharacter({
         >
           {data.name} :
           <Text as="span" fontSize="2vw" padding="0.06vw">
-            {" "}
-            {data.value}{" "}
+            {data.value}
           </Text>
         </Text>
       </Box>
