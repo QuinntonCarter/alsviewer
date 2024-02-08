@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Box, Container, Flex, Spinner } from "@chakra-ui/react";
+import { Box, Container, Flex, Spinner, Text } from "@chakra-ui/react";
 import usePlayer from "../hooks/usePlayer.js";
 import Header from "./Header.js";
 import Search from "./Search.js";
@@ -80,7 +80,7 @@ function Layout(props) {
           height={"260px"}
           alt="Apex legends svg logo trademark of Electronic Arts"
         />
-        <p> ApexStats is viewable on desktop </p>
+        <Text fontWeight={"medium"}> ApexStats is viewable on desktop </Text>
       </Box>
       {!parsedPlayerLegendData.current && !shouldFetch ? (
         <>
