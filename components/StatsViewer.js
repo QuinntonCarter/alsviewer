@@ -11,7 +11,6 @@ import {
 import Image from "next/image";
 import menuStyles from "../styles/Menu.module.css";
 import apexLogoWhite from "../public/apex-logo-white.png";
-import apexLegendsLogo from "../public/apex-legends-logo.svg";
 
 import Characters from "./Characters";
 import SelectedCharacter from "./SelectedCharacter";
@@ -37,16 +36,6 @@ function StatsViewer({
       className={menuStyles.mainContainer}
       onClick={() => canReselectLegend && setSelectedLegend("")}
     >
-      <Box className={menuStyles.noMobile}>
-        <Image
-          title="Apex Legends logo and IP trademark Electronic Arts"
-          src={apexLegendsLogo}
-          width={"360px"}
-          height={"260px"}
-          alt="Apex legends svg logo trademark of Electronic Arts"
-        />
-        <p> Unavailable on mobile </p>
-      </Box>
       <GridItem w={"100%"}>
         <Grid templateColumns={"repeat(2, 50%)"}>
           {foundStats.totalData && (
