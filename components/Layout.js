@@ -1,9 +1,13 @@
 import React, { useState, useRef } from "react";
-import { Container, Flex, Spinner } from "@chakra-ui/react";
+import { Box, Container, Flex, Spinner } from "@chakra-ui/react";
 import usePlayer from "../hooks/usePlayer.js";
 import Header from "./Header.js";
 import Search from "./Search.js";
 import StatsViewer from "./StatsViewer.js";
+import Image from "next/image.js";
+import apexLegendsLogo from "../public/apex-legends-logo.svg";
+
+import menuStyles from "../styles/Menu.module.css";
 
 function Layout(props) {
   const [shouldFetch, setShouldFetch] = useState(true);
@@ -68,6 +72,16 @@ function Layout(props) {
 
   return (
     <Flex flexDirection={"column"} className="appContainer">
+      <Box className={menuStyles.noMobile}>
+        <Image
+          title="Apex Legends logo and IP trademark Electronic Arts"
+          src={apexLegendsLogo}
+          width={"360px"}
+          height={"260px"}
+          alt="Apex legends svg logo trademark of Electronic Arts"
+        />
+        <p> ApexStats is viewable on desktop </p>
+      </Box>
       {!parsedPlayerLegendData.current && !shouldFetch ? (
         <>
           <Header />
